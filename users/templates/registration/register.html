@@ -6,12 +6,12 @@
 </head>
 <body>
 {% block content %}
-    <p>Add a new topic:</p>
-
-    <form action="{% url 'learning_logs:new_topic' %}" method='post'>
+    <form method="post" action="{% url 'users:register' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button name="submit">Add topic</button>
+
+        <button name="submit">register</button>
+        <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
     </form>
 {% endblock content %}
 </body>
